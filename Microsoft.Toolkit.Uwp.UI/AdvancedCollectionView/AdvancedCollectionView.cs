@@ -19,6 +19,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml.Data;
@@ -47,6 +48,14 @@ namespace Microsoft.Toolkit.Uwp.UI
         private int _deferCounter;
 
         private WeakEventListener<AdvancedCollectionView, object, NotifyCollectionChangedEventArgs> _sourceWeakEventListener;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdvancedCollectionView"/> class.
+        /// </summary>
+        public AdvancedCollectionView()
+            : this(new List<object>(0))
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvancedCollectionView"/> class.
@@ -179,8 +188,10 @@ namespace Microsoft.Toolkit.Uwp.UI
                 // no sense in inserting w/ filters or sorts, just add it
                 _sourceList.Add(item);
             }
-
-            _sourceList.Insert(index, item);
+            else
+            {
+                _sourceList.Insert(index, item);
+            }
         }
 
         /// <summary>
@@ -365,12 +376,12 @@ namespace Microsoft.Toolkit.Uwp.UI
         {
             if (!_sortProperties.Any())
             {
-                var typeInfo = x.GetType().GetTypeInfo();
+                var type = x.GetType();
                 foreach (var sd in _sortDescriptions)
                 {
                     if (!string.IsNullOrEmpty(sd.PropertyName))
                     {
-                        _sortProperties[sd.PropertyName] = typeInfo.GetDeclaredProperty(sd.PropertyName);
+                        _sortProperties[sd.PropertyName] = type.GetProperty(sd.PropertyName);
                     }
                 }
             }

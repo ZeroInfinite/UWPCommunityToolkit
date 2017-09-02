@@ -1,3 +1,11 @@
+---
+title: Expander Control
+author: nmetulev
+ms.date: 08/20/2017
+description: The Expander Control provides an expandable container to host any content.
+keywords: windows 10, uwp, uwp community toolkit, uwp toolkit, Expander, xaml Control, xaml
+---
+
 # Expander Control
 
 The **Expander Control** provides an expandable container to host any content.
@@ -8,6 +16,7 @@ You can use these properties :
 * Header
 * HeaderTemplate
 * IsExpanded (define if the content is visible or not)
+* ExpandDirection
 
 You can also use these events :
 
@@ -19,8 +28,10 @@ You can also use these events :
 ```xml
 
 <controls:Expander Header="Header of the expander"
+                   Foreground="White"
+                   Background="Gray"
                    IsExpanded="True">
-	<Grid Height="250" Background="#FFF5F1D9">
+	<Grid Height="250">
         <TextBlock HorizontalAlignment="Center"
                    TextWrapping="Wrap"
                    Text="This is the content"
@@ -29,6 +40,17 @@ You can also use these events :
 </controls:Expander>       
 
 ```
+
+## Properties
+
+### ExpandDirection
+
+The `ExpandDirection` property can take 4 values that will expand the content based on the selected direction:
+
+* `Down` - from top to bottom (default)
+* `Up` - from bottom to top
+* `Right` - from left to right
+* `Left` - from right to left
 
 ## Example Image
 
@@ -44,7 +66,7 @@ You can also use these events :
 
 ## Requirements (Windows 10 Device Family)
 
-| [Device family]("http://go.microsoft.com/fwlink/p/?LinkID=526370) | Universal, 10.0.10586.0 or higher |
+| [Device family](http://go.microsoft.com/fwlink/p/?LinkID=526370) | Universal, 10.0.14393.0 or higher |
 | --- | --- |
 | Namespace | Microsoft.Toolkit.Uwp.UI.Controls |
 

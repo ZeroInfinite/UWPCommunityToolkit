@@ -1,13 +1,21 @@
+---
+title: AdvancedCollectionView
+author: nmetulev
+ms.date: 08/20/2017
+description: The AdvancedCollectionView is a collection view implementation that support filtering, sorting and incremental loading. It's meant to be used in a viewmodel. 
+keywords: windows 10, uwp, uwp community toolkit, uwp toolkit, AdvancedCollectionView
+---
+
 # AdvancedCollectionView
 
 The AdvancedCollectionView is a collection view implementation that support filtering, sorting and incremental loading. It's meant to be used in a viewmodel. 
 
 ## Usage
 
-In your viewmodel instead of having a public [IEnumerable](https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx) of some sort to be bound to an eg. [Listview](https://msdn.microsoft.com/library/windows/apps/Windows.UI.Xaml.Controls.ListView), create a public AdvancedCollectionView and pass your list in the constructor to it. If you've done that you can use the many useful features it provides:
+In your viewmodel instead of having a public [IEnumerable](https://docs.microsoft.com/en-us/dotnet/core/api/system.collections.generic.ienumerable-1) of some sort to be bound to an eg. [Listview](https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Xaml.Controls.ListView), create a public AdvancedCollectionView and pass your list in the constructor to it. If you've done that you can use the many useful features it provides:
 
 * sorting your list using the `SortDirection` helper: specify any number of property names to sort on with the direction desired
-* filtering your list using a [Predicate](https://msdn.microsoft.com/en-us/library/bfcke1bz(v=vs.110).aspx): this will automatically filter your list only to the items that pass the check by the predicate provided
+* filtering your list using a [Predicate](https://docs.microsoft.com/en-us/dotnet/core/api/system.predicate-1): this will automatically filter your list only to the items that pass the check by the predicate provided
 * deferring notifications using the `NotificationDeferrer` helper: with a convenient _using_ pattern you can increase performance while doing large-scale modifications in your list by waiting with updates until you've completed your work
 * incremental loading: if your source collection supports the feature then AdvancedCollectionView will do as well (it simply forwards the calls)
 
@@ -68,7 +76,7 @@ In your viewmodel instead of having a public [IEnumerable](https://msdn.microsof
 
 _What source can I use?_
 
-It's not necessary to use an eg. [ObservableCollection](https://msdn.microsoft.com/library/ms668604.aspx) to use the AdvancedCollectionView. It works as expected even when providing a simple [List](https://msdn.microsoft.com/en-us/library/6sh2ey19(v=vs.110).aspx) in the constructor.
+It's not necessary to use an eg. [ObservableCollection](https://docs.microsoft.com/en-us/dotnet/core/api/system.collections.objectmodel.observablecollection-1) to use the AdvancedCollectionView. It works as expected even when providing a simple [List](https://docs.microsoft.com/en-us/dotnet/core/api/system.collections.generic.list-1) in the constructor.
 
 _Any performance guidelines?_
 
@@ -88,11 +96,11 @@ If you're removing, modifying or inserting large amounts of items while having f
 
 ## Requirements (Windows 10 Device Family)
 
-| [Device family](http://go.microsoft.com/fwlink/p/?LinkID=526370) | Universal, 10.0.10586.0 or higher |
+| [Device family](http://go.microsoft.com/fwlink/p/?LinkID=526370) | Universal, 10.0.14393.0 or higher |
 | --- | --- |
-| Namespace | Microsoft.Toolkit.Uwp |
+| Namespace | Microsoft.Toolkit.Uwp.UI |
 
 ## API
 
-* [AdvancedCollectionView source code](https://github.com/Microsoft/UWPCommunityToolkit/tree/dev/Microsoft.Toolkit.Uwp.UI/AdvancedCollectionView)
+* [AdvancedCollectionView source code](https://github.com/Microsoft/UWPCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/AdvancedCollectionView)
 
